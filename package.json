@@ -1,0 +1,93 @@
+{
+  "name": "vscode-fast-console",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/extension.js",
+  "scripts": {
+    "dev": "rm -rf dist && tsc --watch ",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "publisher": "marvengong",
+  "engines": {
+    "vscode": "^1.84.0"
+  },
+  "author": "1637077309@qq.com",
+  "icon": "images/logo.png",
+  "license": "MIT",
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished",
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "onLanguage:typescript",
+    "onLanguage:typescriptreact",
+    "onLanguage:html"
+  ],
+  "languages": [
+    {
+      "id": "javascript",
+      "extensions": [
+        ".js",
+        ".jsx"
+      ],
+      "aliases": [
+        "javascript",
+        "js"
+      ]
+    },
+    {
+      "id": "typescript",
+      "extensions": [
+        ".ts",
+        ".tsx"
+      ],
+      "aliases": [
+        "typescript",
+        "ts",
+        "tsx"
+      ]
+    }
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.addConsole",
+        "title": "添加Console"
+      }
+    ],
+    "keybindings": [
+      {
+        "key": "ctrl+shift+l",
+        "mac": "cmd+shift+l",
+        "command": "extension.addConsole"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "editorFocus",
+          "command": "extension.addConsole",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "devDependencies": {
+    "@tencent/eslint-config-prettier-typescript-react": "^2.0.0-alpha.2",
+    "@tencent/eslint-config-tencent": "^0.7.2",
+    "@tencent/prettier-config": "^1.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.1.0",
+    "@typescript-eslint/parser": "^4.1.0",
+    "esbuild": "^0.19.8",
+    "eslint": "^7.18.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.6",
+    "eslint-plugin-react-hooks": "^4.1.0",
+    "lint-staged": "^10.3.0",
+    "typescript": "^5.3.2"
+  }
+}
